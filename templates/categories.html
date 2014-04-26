@@ -1,5 +1,6 @@
 <view title="'Categories'">
     <content has-header="true" has-subheader="true">
+<button ng-click="map()" class="button button-block button-balanced">Карта</button>
         <list>
             <item ng-repeat="c in categories" type="item-text-wrap" href="#/categories/{{c.id}}">
                 <h1>{{c.title}}</h1>

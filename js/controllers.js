@@ -13,6 +13,10 @@ angular.module('directory.controllers', [])
     })
 
    .controller('CategoriesCtrl', function($scope, $stateParams, Backend, $location){
+        $scope.map = function(){
+            $location.path('/map');
+        }
+        
         Backend.getCategoriesById($stateParams.id).then(function(categories){
             $scope.categories = categories;    
             if (categories.length == 0)
