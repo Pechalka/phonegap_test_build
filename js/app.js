@@ -28,6 +28,12 @@ angular.module('directory', [
                 controller: 'CategoriesCtrl'
             })
 
+            .state('map', {
+                url: '/map',
+                templateUrl: 'templates/map.html',
+                controller: 'MapCtrl'
+            })
+
             .state('employee-index', {
                 url: '/employees',
                 templateUrl: 'templates/employee-index.html',
@@ -52,8 +58,8 @@ angular.module('directory', [
         $urlRouterProvider.otherwise('/login');
 
 
-        setTimeout(function() {
-            navigator.splashscreen.show();
-        }, 2000);
+        // setTimeout(function() {
+        //     navigator.splashscreen.show();
+        // }, 2000);
 
     });
