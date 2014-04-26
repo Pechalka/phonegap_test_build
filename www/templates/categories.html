@@ -1,0 +1,11 @@
+<view title="'Categories'">
+    <content has-header="true" has-subheader="true">
+        <list>
+            <item ng-repeat="c in categories" type="item-text-wrap" href="#/categories/{{c.id}}">
+                <h1>{{c.title}}</h1>
+            </item>
+            </item>
+        </list>
+    </content>
+
+</view>
