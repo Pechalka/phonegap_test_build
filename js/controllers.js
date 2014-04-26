@@ -17,6 +17,8 @@ angular.module('directory.controllers', [])
             $location.path('/map');
         }
         
+        // <button ng-click="map()" class="button button-block button-balanced">Карта</button>
+
         Backend.getCategoriesById($stateParams.id).then(function(categories){
             $scope.categories = categories;    
             if (categories.length == 0)
