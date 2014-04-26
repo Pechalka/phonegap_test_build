@@ -27,6 +27,11 @@ angular.module('directory', [
                 templateUrl: 'templates/categories.html',
                 controller: 'CategoriesCtrl'
             })
+            .state('test', {
+                url: '/test',
+                templateUrl: 'templates/test.html',
+                controller: 'TestCtrl'
+            })
 
             .state('map', {
                 url: '/map',

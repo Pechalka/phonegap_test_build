@@ -12,6 +12,28 @@ angular.module('directory.controllers', [])
         };
     })
 
+
+   .controller('TestCtrl', function($scope, $stateParams, Backend, $location, $ionicModal){
+
+  $ionicModal.fromTemplateUrl('templates/provider-detail.html', function(modal) {
+
+    $scope.modal = modal;
+  }, {
+    scope: $scope,
+    animation: 'slide-in-up'
+  })
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+    })
+
    .controller('CategoriesCtrl', function($scope, $stateParams, Backend, $location){
         $scope.map = function(){
             $location.path('/map');
@@ -26,17 +48,45 @@ angular.module('directory.controllers', [])
         })
     })
 
-.controller('MapCtrl', function($scope, $ionicLoading) {
+.controller('MapCtrl', function($scope, $ionicLoading, $ionicModal) {
     
       var init = function() {
+        var minsk = new google.maps.LatLng(53.93981,27.59701);
         var mapOptions = {
-          center: new google.maps.LatLng(43.07493,-89.381388),
+          center: minsk,
           zoom: 16,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         
         var map = new google.maps.Map(document.getElementById("map"),
             mapOptions);
+
+        var marker = new google.maps.Marker({
+              position: minsk,
+              map: map,
+              title: 'Лена Иванова'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+// $ionicModal.fromTemplateUrl('templates/provider-detail.html', {
+//     scope: $scope,
+//     animation: 'slide-in-up'
+//   }).then(function(modal) {
+//     debugger
+//     $scope.modal = modal;
+//   });
+//   $scope.openModal = function() {
+//     $scope.modal.show();
+//   };
+//   $scope.closeModal = function() {
+//     $scope.modal.hide();
+//   };
+//   //Cleanup the modal when we're done with it!
+//   $scope.$on('$destroy', function() {
+//     $scope.modal.remove();
+//   });
+            $scope.modal.show();
+        });
 
         // Stop the side bar from dragging when mousedown/tapdown on the map
         google.maps.event.addDomListener(document.getElementById('map'), 'mousedown', function(e) {
@@ -46,6 +96,24 @@ angular.module('directory.controllers', [])
 
         $scope.map = map;
       }
+
+      $ionicModal.fromTemplateUrl('templates/provider-detail.html', function(modal) {
+
+    $scope.modal = modal;
+  }, {
+    scope: $scope,
+    animation: 'slide-in-up'
+  })
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
 
       //google.maps.event.addDomListener(window, 'load', initialize);
       
