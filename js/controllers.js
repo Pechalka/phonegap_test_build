@@ -27,6 +27,7 @@ angular.module('directory.controllers', [])
   };
   $scope.closeModal = function() {
     $scope.modal.hide();
+    return false;
   };
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {

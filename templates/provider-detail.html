@@ -1,9 +1,10 @@
-<div class="modal">
-        <header class="bar bar-header bar-positive">
+<div class="modal" >
+        <!-- <header class="bar bar-header bar-positive">
           <h1 class="title">I'm A Modal</h1>
           <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
         </header>
-        <content has-header="true" padding="true">
+         -->
+        <content has-header="false" padding="true" has-bouncing="false">
 
       <div class="list card">
 
@@ -21,11 +22,14 @@
 
         </div>
 
-        <a class="item item-icon-left assertive" href="#">
+        <a class="item item-icon-left balanced" ng-click="closeModal()" href>
     <i class="icon ion-checkmark-circled"></i>
     Заказать
   </a>
-
+        <a class="item item-icon-left assertive" ng-click="closeModal()" href>
+    <i class="icon ion-close-circled"></i>
+    Закрыть
+  </a>
       </div>
 
         </content>
