@@ -93,6 +93,7 @@ angular.module('directory.controllers', [])
 
         // Stop the side bar from dragging when mousedown/tapdown on the map
         google.maps.event.addDomListener(document.getElementById('map'), 'mousedown', function(e) {
+          alert('sdf')
           e.preventDefault();
           return false;
         });
