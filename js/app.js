@@ -39,24 +39,6 @@ angular.module('directory', [
                 controller: 'MapCtrl'
             })
 
-            .state('employee-index', {
-                url: '/employees',
-                templateUrl: 'templates/employee-index.html',
-                controller: 'EmployeeIndexCtrl'
-            })
-
-            .state('employee-detail', {
-                url: '/employee/:employeeId',
-                templateUrl: 'templates/employee-detail.html',
-                controller: 'EmployeeDetailCtrl'
-            })
-
-            .state('employee-reports', {
-                url: '/employee/:employeeId/reports',
-                templateUrl: 'templates/employee-reports.html',
-                controller: 'EmployeeReportsCtrl'
-            });
-
 
 
         // if none of the above states are matched, use this as the fallback
@@ -68,3 +50,5 @@ angular.module('directory', [
         // }, 2000);
 
     });
+
+

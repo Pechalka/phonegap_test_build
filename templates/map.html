@@ -1,13 +1,21 @@
-<view title="'Карта'">
-  <content has-header="true" padding="true">
+
+
+<ion-view title="Карта" hide-back-button="true">
+<ion-nav-buttons side="left">
+          <button class="button" ng-click="back()">
+            LeftButton!
+          </button>
+          
+        </ion-nav-buttons>        
+ <ion-content has-header="true" has-footer="true"  padding="true">
 
 <div id="map"></div>
 
 
-  </content>
-  <footer-bar class="bar-dark">
-      <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
-    </footer-bar>
+  </ion-content>
+  <ion-footer-bar class="bar-dark">
+      <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">где я?</a>
+    </ion-footer-bar>
 </view>
 
 

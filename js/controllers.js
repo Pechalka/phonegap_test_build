@@ -49,7 +49,7 @@ angular.module('directory.controllers', [])
         })
     })
 
-.controller('MapCtrl', function($scope, $ionicLoading, $ionicModal) {
+.controller('MapCtrl', function($scope, $ionicLoading, $ionicModal, $location) {
     
       var init = function() {
         var minsk = new google.maps.LatLng(53.93981,27.59701);
@@ -86,7 +86,8 @@ angular.module('directory.controllers', [])
 //   $scope.$on('$destroy', function() {
 //     $scope.modal.remove();
 //   });
-            $scope.modal.show();
+       // debugger
+           $scope.modal.show();
         });
 
         // Stop the side bar from dragging when mousedown/tapdown on the map
@@ -98,19 +99,21 @@ angular.module('directory.controllers', [])
         $scope.map = map;
       }
 
-      $ionicModal.fromTemplateUrl('templates/provider-detail.html', function(modal) {
+var modal = null;
 
+      $ionicModal.fromTemplateUrl('templates/provider-detail.html', function(modal, a,b,c) {
+        
     $scope.modal = modal;
+   // modal.scope
+   // $scope.$hasHeader = false;
   }, {
-    scope: $scope,
+ //   scope: $scope,
     animation: 'slide-in-up'
   })
   $scope.openModal = function() {
     $scope.modal.show();
   };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
+ 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
     $scope.modal.remove();
@@ -135,12 +138,25 @@ angular.module('directory.controllers', [])
           alert('Unable to get location: ' + error.message);
         });
       };
+
+      $scope.back = function(){
+      
+        $location.path('/categories/0');
+      }
+      
  $scope.$on('$viewContentLoaded', function() {
         init()
     });
       //initialize();
     })
-
+.controller('ModalCtrl', function($scope) {
+  
+  
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  
+})
 
     .controller('EmployeeIndexCtrl', function ($scope, EmployeeService) {
 
