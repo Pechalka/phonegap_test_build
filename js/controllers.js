@@ -87,6 +87,7 @@ angular.module('directory.controllers', [])
 //     $scope.modal.remove();
 //   });
        // debugger
+       alert('test')
            $scope.modal.show();
         });
 
