@@ -1,16 +1,20 @@
 
 
-             <ion-view title="Categories">
-
+<ion-view title="Категории" hide-back-button="true">
+    <ion-header-bar class="bar-dark">
+    <ion-nav-buttons side="left"  >
+<button nav-clear  button-clear class="button button-icon icon ion-ios7-person" ></button>
+        </ion-nav-buttons>       
+    </ion-header-bar>
 
     <ion-content has-header="true" has-subheader="true">
+        <ion-list >
+            <ion-item can-swipe="true" ng-repeat="c in categories" type="item-text-wrap" ng-click="select(c)" >
 
-        <ion-list>
-            <ion-item ng-repeat="c in categories" type="item-text-wrap" href="#/categories/{{c.id}}">
-                <h1>{{c.title}}</h1>
-            </ion-item>
+                <h1 >{{c.title}}</h1>
             </ion-item>
         </ion-list>
     </ion-content>
 
 </view>
+

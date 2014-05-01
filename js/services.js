@@ -3,15 +3,15 @@ angular.module('directory.services', [])
     .factory('Backend', function($q) {
 
         var categories = [
-            { title : 'Волосы', id : 1, parent_id : 0 },
-            { title : 'Кожа', id : 2, parent_id : 0 },
-            { title : 'Руки', id : 3, parent_id : 0 },
-            { title : 'Ноги', id : 4, parent_id : 0 },
+            { title : 'Волосы', id : 1, parent_id : 0 , isService : false },
+            { title : 'Кожа', id : 2, parent_id : 0 , isService : false },
+            { title : 'Руки', id : 3, parent_id : 0 , isService : false },
+            { title : 'Ноги', id : 4, parent_id : 0 , isService : false },
 
-            { title : 'Покраска', id : 5, parent_id : 1 },
-            { title : 'Пилинг', id : 6, parent_id : 2 },
-            { title : 'Маникюр', id : 7, parent_id : 3 },
-            { title : 'Педекюр', id : 8, parent_id : 4 }
+            { title : 'Покраска', id : 5, parent_id : 1 , isService : true },
+            { title : 'Пилинг', id : 6, parent_id : 2 , isService : true },
+            { title : 'Маникюр', id : 7, parent_id : 3 , isService : true },
+            { title : 'Педекюр', id : 8, parent_id : 4 , isService : true }
               
         ];
 

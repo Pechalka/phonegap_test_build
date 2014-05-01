@@ -40,12 +40,22 @@ angular.module('directory.controllers', [])
             $location.path('/map');
         }
         
+        $scope.back = function(){
+          alert('sdf');
+        }
+
+        $scope.select = function(c){
+          if (c.isService)
+            $location.path('/map');
+          else
+            $location.path('/categories/' + c.id);
+        }
         // <button ng-click="map()" class="button button-block button-balanced">Карта</button>
 
         Backend.getCategoriesById($stateParams.id).then(function(categories){
             $scope.categories = categories;    
-            if (categories.length == 0)
-                 $location.path('/map');
+            // if (categories.length == 0)
+            //      $location.path('/map');
         })
     })
 
@@ -158,41 +168,4 @@ angular.module('directory.controllers', [])
     $scope.modal.hide();
   };
   
-})
-
-    .controller('EmployeeIndexCtrl', function ($scope, EmployeeService) {
-
-        $scope.searchKey = "";
-
-        $scope.clearSearch = function () {
-            $scope.searchKey = "";
-            findAllEmployees();
-        }
-
-        $scope.search = function () {
-            EmployeeService.findByName($scope.searchKey).then(function (employees) {
-                $scope.employees = employees;
-            });
-        }
-
-        var findAllEmployees = function() {
-            EmployeeService.findAll().then(function (employees) {
-                $scope.employees = employees;
-            });
-        }
-
-        findAllEmployees();
-
-    })
-
-    .controller('EmployeeDetailCtrl', function ($scope, $stateParams, EmployeeService) {
-        EmployeeService.findById($stateParams.employeeId).then(function(employee) {
-            $scope.employee = employee;
-        });
-    })
-
-    .controller('EmployeeReportsCtrl', function ($scope, $stateParams, EmployeeService) {
-        EmployeeService.findByManager($stateParams.employeeId).then(function(employees) {
-            $scope.employees = employees;
-        });
-    });
+});
