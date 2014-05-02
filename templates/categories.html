@@ -1,14 +1,15 @@
 
 
-<ion-view title="Категории"  hide-nav-bar="true">
-<ion-header-bar class="bar-positive">
-		<button  class="button button-icon icon ion-ios7-person" ></button>
+<ion-view title="Категории"  >
 
+<!-- <ion-header-bar class="bar-positive"> hide-nav-bar="true"
+	<button  class="button button-icon icon ion-ios7-person" ></button>
     <h1 class="title">Категории</h1>    
 </ion-header-bar>
+ -->
     <ion-content  has-bouncing="true"  class="has-header">
         <ion-list >
-            <ion-item can-swipe="true" ng-repeat="c in categories" type="item-text-wrap" ng-click="select(c)" >
+            <ion-item  ng-repeat="c in categories" type="item-text-wrap" ng-click="select(c)" >
 
                 <h1 >{{c.title}}</h1>
             </ion-item>
