@@ -103,8 +103,8 @@ angular.module('directory.controllers', [])
 //     $scope.modal.remove();
 //   });
        // debugger
-       alert('test')
-          // $scope.modal.show();
+      // alert('test')
+           $scope.modal.show();
         });
 
         // Stop the side bar from dragging when mousedown/tapdown on the map
@@ -119,23 +119,23 @@ angular.module('directory.controllers', [])
 
 // var modal = null;
 
-//       $ionicModal.fromTemplateUrl('templates/provider-detail.html', function(modal, a,b,c) {
+      $ionicModal.fromTemplateUrl('templates/provider-detail.html', function(modal, a,b,c) {
         
-//     $scope.modal = modal;
-//    // modal.scope
-//    // $scope.$hasHeader = false;
-//   }, {
-//  //   scope: $scope,
-//     animation: 'slide-in-up'
-//   })
-//   $scope.openModal = function() {
-//     $scope.modal.show();
-//   };
+    $scope.modal = modal;
+   // modal.scope
+   // $scope.$hasHeader = false;
+  }, {
+ //   scope: $scope,
+    animation: 'slide-in-up'
+  })
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
  
-//   //Cleanup the modal when we're done with it!
-//   $scope.$on('$destroy', function() {
-//     $scope.modal.remove();
-//   });
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
 
       //google.maps.event.addDomListener(window, 'load', initialize);
       
