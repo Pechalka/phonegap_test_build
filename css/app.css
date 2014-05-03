@@ -29,3 +29,15 @@
 .scroll {
   height: 100%;
 }*/
+
+
+.avatar {
+  border-radius: 80px;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+}
+
+#profile .input-label {
+  display: block;
+}

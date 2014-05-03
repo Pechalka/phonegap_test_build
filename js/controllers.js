@@ -11,7 +11,9 @@ angular.module('directory.controllers', [])
             $location.path('/categories/0');
         };
     })
-
+    .controller('ProfileCtrl', function($scope){
+      
+    })
 
    .controller('TestCtrl', function($scope, $stateParams, Backend, $location, $ionicModal){
 
@@ -35,14 +37,21 @@ angular.module('directory.controllers', [])
   });
     })
 
-   .controller('CategoriesCtrl', function($scope, $stateParams, Backend, $location){
+   .controller('CategoriesCtrl', function($ionicNavBarDelegate, $scope, $stateParams, Backend, $location){
+        $scope.parent_id = $stateParams.id;
+
+        $scope.profile = function(event){
+          console.log('profile');
+        }
+
+        $scope.back = function(){
+          $ionicNavBarDelegate.back();
+        }
+
         $scope.map = function(){
             $location.path('/map');
         }
         
-        $scope.back = function(){
-          alert('sdf');
-        }
 
         $scope.select = function(c){
           if (c.isService)
@@ -50,12 +59,9 @@ angular.module('directory.controllers', [])
           else
             $location.path('/categories/' + c.id);
         }
-        // <button ng-click="map()" class="button button-block button-balanced">Карта</button>
 
         Backend.getCategoriesById($stateParams.id).then(function(categories){
-            $scope.categories = categories;    
-            // if (categories.length == 0)
-            //      $location.path('/map');
+            $scope.categories = categories; 
         })
     })
 

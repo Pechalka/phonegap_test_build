@@ -2,15 +2,20 @@
 
 <ion-view title="Категории" hide-nav-bar="true" >
 
-<ion-header-bar class="bar-positive"> 
-	<button  class="button button-icon icon ion-ios7-person" ></button>
-    <h1 class="title">Категории</h1>    
+<ion-header-bar class="bar-positive" ng-if="parent_id == 0"> 
+	<a ion-nav-animation="slide-in-up" href="#/profile" class="button button-icon icon ion-ios7-person" ></a>
+    <h1 class="title">Категории</h1>
 </ion-header-bar>
+
+<ion-header-bar class="bar-positive" ng-if="parent_id != 0"> 
+	<button ng-click="back()"  class="button button-icon icon ion-ios7-arrow-back" ></button>
+    <h1 class="title">Категории</h1>
+</ion-header-bar>
+
 
     <ion-content  has-bouncing="true"  class="has-header">
         <ion-list >
             <ion-item  ng-repeat="c in categories" type="item-text-wrap" ng-click="select(c)" >
-
                 <h1 >{{c.title}}</h1>
             </ion-item>
         </ion-list>
