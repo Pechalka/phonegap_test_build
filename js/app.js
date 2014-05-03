@@ -44,7 +44,11 @@ angular.module('directory', [
                 templateUrl: 'templates/profile.html',
                 controller: 'ProfileCtrl'
             })
-
+            .state('change_password', {
+                url: '/change_password',
+                templateUrl: 'templates/change_password.html',
+                controller: 'ProfileCtrl'
+            })
 
 
         // if none of the above states are matched, use this as the fallback
