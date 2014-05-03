@@ -49,7 +49,11 @@ angular.module('directory', [
                 templateUrl: 'templates/change_password.html',
                 controller: 'ProfileCtrl'
             })
-
+            .state('waite', {
+                url: '/waite',
+                templateUrl: 'templates/waite.html',
+                controller: 'ProfileCtrl'
+            })
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/login');
